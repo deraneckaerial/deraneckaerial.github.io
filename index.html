@@ -3,49 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ratgeber & Vergleiche | dearneckaerial1</title>
-  <meta name="description" content="Ratgeber zu Finanzen, Versicherungen, Reisen, Software & Webhosting">
+  <title>Ratgeber &amp; Vergleiche für DACH</title>
+  <meta name="description" content="Unabhängige Vergleiche und Ratgeber für Finanzen, Versicherungen, Reisen, Software & Webhosting im deutschsprachigen Raum.">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; color: #333; }
-    h1 { font-size: 2.2rem; text-align: center; margin-bottom: 0.5rem; }
-    .subtitle { text-align: center; color: #666; margin-bottom: 3rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .card { border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s; }
-    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .card h2 { font-size: 1.2rem; margin: 0 0 0.5rem; color: #0066cc; }
-    .card p { margin: 0; font-size: 0.9rem; color: #555; }
-    .emoji { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+    :root {
+      --navy:       #0f2942;
+      --navy-light: #1a4a7a;
+      --bg:         #f8fafc;
+      --surface:    #ffffff;
+      --border:     #e2e8f0;
+      --text:       #1e293b;
+      --muted:      #64748b;
+      --max-w:      1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                   'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      background: var(--navy);
+      padding: 0 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    .header__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      height: 62px;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: #fff;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .hero__inner { max-width: 680px; margin: 0 auto; }
+    .hero__badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #93c5fd;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+    .hero__title {
+      font-size: clamp(2rem, 6vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.25rem;
+    }
+    .hero__desc {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+    }
+
+    /* Nischen Grid */
+    .nischen {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+    .nischen__heading {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.375rem;
+    }
+    .nischen__sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+    .nischen-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .nischen-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--accent-color, #1d6fa4);
+      border-radius: 12px 12px 0 0;
+    }
+    .nischen-card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      transform: translateY(-4px);
+      border-color: #cbd5e1;
+      text-decoration: none;
+    }
+    .nischen-card__icon {
+      font-size: 2.25rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .nischen-card__title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+    .nischen-card:hover .nischen-card__title { color: #1d6fa4; }
+    .nischen-card__desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .nischen-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-color, #1d6fa4);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.8rem;
+      margin-top: auto;
+      line-height: 1.8;
+    }
+    .footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .footer a:hover { color: #fff; text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1rem 2.5rem; }
+      .nischen { padding: 2.5rem 1rem 3.5rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <h1>Ratgeber & Vergleiche</h1>
-  <p class="subtitle">Unabhängige Vergleiche & Empfehlungen für den deutschsprachigen Raum</p>
-  <div class="grid">
-    <a class="card" href="/finanzen-ratgeber/">
-      <span class="emoji">💳</span>
-      <h2>Finanzen Ratgeber</h2>
-      <p>Kreditkarten, Kredite & Bankvergleiche für DACH</p>
-    </a>
-    <a class="card" href="/versicherungen-ratgeber/">
-      <span class="emoji">🛡️</span>
-      <h2>Versicherungen Ratgeber</h2>
-      <p>KFZ, Haftpflicht & Krankenversicherung im Vergleich</p>
-    </a>
-    <a class="card" href="/reisen-ratgeber/">
-      <span class="emoji">✈️</span>
-      <h2>Reisen Ratgeber</h2>
-      <p>Hotels, Pauschalreisen & Last-Minute günstig buchen</p>
-    </a>
-    <a class="card" href="/software-vpn-ratgeber/">
-      <span class="emoji">🔒</span>
-      <h2>Software & VPN Ratgeber</h2>
-      <p>VPN, Antivirus & Software im Vergleich</p>
-    </a>
-    <a class="card" href="/webhosting-ratgeber/">
-      <span class="emoji">🌐</span>
-      <h2>Webhosting Ratgeber</h2>
-      <p>Webhosting & WordPress Hosting im Vergleich</p>
-    </a>
-  </div>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="logo">Ratgeber &amp; Vergleiche</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <span class="hero__badge">DACH &middot; Unabhängig &middot; Kostenlos</span>
+      <h1 class="hero__title">Die besten Vergleiche &amp; Ratgeber</h1>
+      <p class="hero__desc">
+        Unabhängige Empfehlungen zu Finanzen, Versicherungen, Reisen,
+        Software und Webhosting — speziell für den deutschsprachigen Raum.
+      </p>
+    </div>
+  </section>
+
+  <section class="nischen">
+    <h2 class="nischen__heading">Alle Themenbereiche</h2>
+    <p class="nischen__sub">Wähle deinen Ratgeber-Bereich</p>
+
+    <div class="grid">
+      <a class="nischen-card" href="/finanzen-ratgeber/"
+         style="--accent-color: #1d6fa4;">
+        <div class="nischen-card__icon">💳</div>
+        <div class="nischen-card__title">Finanzen Ratgeber</div>
+        <p class="nischen-card__desc">Kreditkarten, Kredite &amp; Bankvergleiche — die besten Angebote für DACH.</p>
+        <span class="nischen-card__link">
+          Artikel lesen
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <a class="nischen-card" href="/versicherungen-ratgeber/"
+         style="--accent-color: #0f766e;">
+        <div class="nischen-card__icon">🛡️</div>
+        <div class="nischen-card__title">Versicherungen Ratgeber</div>
+        <p class="nischen-card__desc">KFZ, Haftpflicht &amp; Krankenversicherung — jetzt vergleichen &amp; sparen.</p>
+        <span class="nischen-card__link">
+          Artikel lesen
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <a class="nischen-card" href="/reisen-ratgeber/"
+         style="--accent-color: #7c3aed;">
+        <div class="nischen-card__icon">✈️</div>
+        <div class="nischen-card__title">Reisen Ratgeber</div>
+        <p class="nischen-card__desc">Hotels, Pauschalreisen &amp; Last-Minute günstig buchen — aktuelle Deals.</p>
+        <span class="nischen-card__link">
+          Artikel lesen
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <a class="nischen-card" href="/software-vpn-ratgeber/"
+         style="--accent-color: #b45309;">
+        <div class="nischen-card__icon">🔒</div>
+        <div class="nischen-card__title">Software &amp; VPN Ratgeber</div>
+        <p class="nischen-card__desc">VPN, Antivirus &amp; Software im Vergleich — sicher und günstig online.</p>
+        <span class="nischen-card__link">
+          Artikel lesen
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+
+      <a class="nischen-card" href="/webhosting-ratgeber/"
+         style="--accent-color: #be123c;">
+        <div class="nischen-card__icon">🌐</div>
+        <div class="nischen-card__title">Webhosting Ratgeber</div>
+        <p class="nischen-card__desc">Webhosting &amp; WordPress Hosting im Vergleich — die besten Anbieter 2026.</p>
+        <span class="nischen-card__link">
+          Artikel lesen
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>
+      © 2026 Ratgeber &amp; Vergleiche &nbsp;·&nbsp;
+      Artikel können Affiliate-Links enthalten. Bei Kauf erhalten wir eine Provision — für dich kostenlos.
+    </p>
+  </footer>
+
 </body>
 </html>
